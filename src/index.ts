@@ -74,3 +74,121 @@ var sayHello = (name: string): string => {
 	return "Hello " + name;
 };
 console.log(sayHello("Dat"));
+
+//TODO Oop
+console.log("Oop --------------");
+
+//? Trừ tượng hóa
+class Person {
+	name: string;
+	age: number;
+	isMale: boolean;
+
+	constructor(name: string, age: number, isMale: boolean) {
+		this.name = name;
+		this.age = age;
+		this.isMale = isMale;
+	}
+
+	talk(): void {
+		console.log("My name is", this.name);
+		console.log("I am", this.age);
+		if (this.isMale) {
+			console.log("I am a man.");
+		} else console.log("I am a woman.");
+	}
+}
+const person1 = new Person("Dat", 20, true);
+person1.talk();
+
+//? Kế thừa
+class Student extends Person {
+	score: number;
+
+	constructor(name: string, age: number, isMale: boolean, score: number) {
+		super(name, age, isMale);
+		this.score = score;
+	}
+
+	talk(): void {
+		super.talk();
+		console.log("My score is", this.score);
+	}
+}
+const student1 = new Student("Vy", 15, false, 9);
+student1.talk();
+
+//? Access Modifier
+//* public, private, protected
+class Employee extends Person {
+	protected year: number;
+	private salary: number;
+
+	constructor(name: string, age: number, isMale: boolean, year:number, salary: number) {
+		super(name, age, isMale);
+		this.year = year;
+		this.salary = salary;
+	}
+
+	public setSalary(salary: number): void {
+		this.salary = salary;
+	}
+
+	public getSalary(): number {
+		return this.salary;
+	}
+
+	public talk(): void {
+		super.talk();
+		console.log("My salary is", this.getSalary());
+		console.log("My year is", this.year);
+	}
+}
+const employee1 = new Employee("Alice", 28, false, 5, 20000);
+employee1.talk();
+employee1.setSalary(25000);
+employee1.talk();
+
+//? Abstract class
+abstract class Animal {
+	private name: string;
+
+	constructor(name: string) {
+		this.name = name;
+	}
+
+	public setName(name: string): void {
+		this.name = name;
+	}
+
+	public getName(): string {
+		return this.name;
+	}
+
+	abstract talk(): void;
+}
+
+class Dog extends Animal {
+	private type: string;
+
+	constructor(name: string, type: string) {
+		super(name);
+		this.type = type;
+	}
+
+	public setType(type: string): void {
+		this.type = type
+	}
+
+	public getType(): string {
+		return this.type;
+	}
+
+	public talk(): void {
+		console.log("I am a " + this.type + " dog.")
+		console.log("Gâu gâu...")
+	}
+}
+const dog1 = new Dog("Millo", "BullDog");
+dog1.talk();
+
