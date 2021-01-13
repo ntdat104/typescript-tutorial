@@ -52,25 +52,35 @@ console.log(random);
 
 //TODO function trong typescript
 //* void
-var run = function (): void {
+const run = function (): void {
 	console.log("Hello World");
 };
 run();
 
+function run2(): void {
+	console.log("Hello World");
+}
+run2();
+
+const run3 = (): void => {
+	console.log("Hello World");
+}
+run3();
+
 //* return number - type 1
-var calcAverage = function (a: number, b: number): number {
+const calcAverage = function (a: number, b: number): number {
 	return (a + b) / 2;
 };
 console.log(calcAverage(2, 4));
 
 //* return number - type 2 - arrow function
-var calcAverage2 = (a: number, b: number): number => {
+const calcAverage2 = (a: number, b: number): number => {
 	return (a + b) / 2;
 };
-console.log(calcAverage(3, 5));
+console.log(calcAverage2(3, 5));
 
 //* return string
-var sayHello = (name: string): string => {
+const sayHello = (name: string): string => {
 	return "Hello " + name;
 };
 console.log(sayHello("Dat"));
@@ -220,6 +230,13 @@ class HSG implements Student1 {
 	firstName: string;
 	lastName: string;
 	age: number;
+
+	constructor(id: string, firstName: string, lastName: string, age: number) {
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+	}
 
 	showInfo = (): void => {
 		console.log("Id:", this.id);

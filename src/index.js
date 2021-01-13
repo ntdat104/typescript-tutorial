@@ -53,6 +53,14 @@ var run = function () {
     console.log("Hello World");
 };
 run();
+function run2() {
+    console.log("Hello World");
+}
+run2();
+var run3 = function () {
+    console.log("Hello World");
+};
+run3();
 //* return number - type 1
 var calcAverage = function (a, b) {
     return (a + b) / 2;
@@ -62,7 +70,7 @@ console.log(calcAverage(2, 4));
 var calcAverage2 = function (a, b) {
     return (a + b) / 2;
 };
-console.log(calcAverage(3, 5));
+console.log(calcAverage2(3, 5));
 //* return string
 var sayHello = function (name) {
     return "Hello " + name;
@@ -170,7 +178,7 @@ function run1(x) {
 console.log(run1("Day la ham generic"));
 console.log(run1(10));
 var HSG = /** @class */ (function () {
-    function HSG() {
+    function HSG(id, firstName, lastName, age) {
         var _this = this;
         this.showInfo = function () {
             console.log("Id:", _this.id);
@@ -178,6 +186,10 @@ var HSG = /** @class */ (function () {
             console.log("lastName:", _this.lastName);
             console.log("age:", _this.age);
         };
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
     }
     HSG.prototype.study = function () {
         console.log("I am studying...");
