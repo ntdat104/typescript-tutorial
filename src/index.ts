@@ -93,9 +93,7 @@ class Person {
 	talk(): void {
 		console.log("My name is", this.name);
 		console.log("I am", this.age);
-		if (this.isMale) {
-			console.log("I am a man.");
-		} else console.log("I am a woman.");
+		console.log(this.isMale ? "I am a man." : "I am a woman.");
 	}
 }
 const person1 = new Person("Dat", 20, true);
@@ -124,7 +122,13 @@ class Employee extends Person {
 	protected year: number;
 	private salary: number;
 
-	constructor(name: string, age: number, isMale: boolean, year:number, salary: number) {
+	constructor(
+		name: string,
+		age: number,
+		isMale: boolean,
+		year: number,
+		salary: number
+	) {
 		super(name, age, isMale);
 		this.year = year;
 		this.salary = salary;
@@ -177,7 +181,7 @@ class Dog extends Animal {
 	}
 
 	public setType(type: string): void {
-		this.type = type
+		this.type = type;
 	}
 
 	public getType(): string {
@@ -185,10 +189,46 @@ class Dog extends Animal {
 	}
 
 	public talk(): void {
-		console.log("I am a " + this.type + " dog.")
-		console.log("Gâu gâu...")
+		console.log("I am a " + this.type + " dog.");
+		console.log("Gâu gâu...");
 	}
 }
 const dog1 = new Dog("Millo", "BullDog");
 dog1.talk();
 
+//? Generic
+function run1<T>(x: T): T {
+	return x;
+}
+console.log(run1<string>("Day la ham generic"));
+console.log(run1<number>(10));
+
+//? Interface
+interface Student1 {
+	id: string;
+	firstName: string;
+	middleName?: string;
+	lastName: string;
+	age: number;
+
+	showInfo(): void;
+	study: () => void;
+}
+
+class HSG implements Student1 {
+	id: string;
+	firstName: string;
+	lastName: string;
+	age: number;
+
+	showInfo = (): void => {
+		console.log("Id:", this.id);
+		console.log("firstName:", this.firstName);
+		console.log("lastName:", this.lastName);
+		console.log("age:", this.age);
+	};
+
+	study(): void {
+		console.log("I am studying...");
+	}
+}

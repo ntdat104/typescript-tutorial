@@ -80,11 +80,7 @@ var Person = /** @class */ (function () {
     Person.prototype.talk = function () {
         console.log("My name is", this.name);
         console.log("I am", this.age);
-        if (this.isMale) {
-            console.log("I am a man.");
-        }
-        else
-            console.log("I am a woman.");
+        console.log(this.isMale ? "I am a man." : "I am a woman.");
     };
     return Person;
 }());
@@ -167,3 +163,24 @@ var Dog = /** @class */ (function (_super) {
 }(Animal));
 var dog1 = new Dog("Millo", "BullDog");
 dog1.talk();
+//? Generic
+function run1(x) {
+    return x;
+}
+console.log(run1("Day la ham generic"));
+console.log(run1(10));
+var HSG = /** @class */ (function () {
+    function HSG() {
+        var _this = this;
+        this.showInfo = function () {
+            console.log("Id:", _this.id);
+            console.log("firstName:", _this.firstName);
+            console.log("lastName:", _this.lastName);
+            console.log("age:", _this.age);
+        };
+    }
+    HSG.prototype.study = function () {
+        console.log("I am studying...");
+    };
+    return HSG;
+}());
